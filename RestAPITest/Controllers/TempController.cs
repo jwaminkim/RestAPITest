@@ -20,7 +20,7 @@ namespace RestAPISample.Controllers
             {
                 JArray jArrResult = new JArray();
                 var jResult1 = JObject.Parse("{\"name\" : \"김좌민\", \"id\" : 1}");
-                var jResult2 = JObject.Parse("{\"name\" : \"김동우\", \"id\" : 7}");
+                var jResult2 = JObject.Parse("{\"name\" : \"김동우\", \"id\" : 8}");
                 jArrResult.Add(jResult1);
                 jArrResult.Add(jResult2);
                 return JsonConvert.SerializeObject(jArrResult);
