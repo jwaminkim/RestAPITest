@@ -19,14 +19,16 @@ namespace RestAPISample.Controllers
             try
             {
                 JArray jArrResult = new JArray();
-                var jResult = JObject.Parse("{\"name\" : \"김좌민\", \"id\" : 1},{\"name\" : \"김동우\", \"id\" : 3}");
-
+                var jResult1 = JObject.Parse("{\"name\" : \"김좌민\", \"id\" : 1}");
+                var jResult2 = JObject.Parse("{\"name\" : \"김동우\", \"id\" : 2}");
+                jArrResult.Add(jResult1);
+                jArrResult.Add(jResult2);
                 return JsonConvert.SerializeObject(jArrResult);
             }
             catch (Exception ex)
             {
                 JArray jArrResult = new JArray();
-                var jResult = JObject.Parse("{\"resultCode\" : \"0\", \"resultMsg\" : \" 실패 : " + ex.Message + "\\ }");
+                var jResult = JObject.Parse("{\"resultCode\" : \"0\", \"resultMsg\" : \" 실패 : " + ex.Message + "\" }");
                 jArrResult.Add(jResult);
                 return JsonConvert.SerializeObject(jArrResult);
             }            
@@ -37,7 +39,7 @@ namespace RestAPISample.Controllers
         public string Get(int id)
         {
             var jResult = JObject.Parse("{\"name\" : \"김좌민\", \"id\" : "+ id + "}");
-            return "value";
+            return JsonConvert.SerializeObject(jResult);
         }
 
         [HttpPost]
@@ -73,7 +75,7 @@ namespace RestAPISample.Controllers
             catch (Exception ex)
             {
                 JArray jArrResult = new JArray();
-                var jResult = JObject.Parse("{\"resultCode\" : \"0\", \"resultMsg\" : \" 실패 : " + ex.Message + "\\ }");
+                var jResult = JObject.Parse("{\"resultCode\" : \"0\", \"resultMsg\" : \" 실패 : " + ex.Message + "\" }");
 
                 return JsonConvert.SerializeObject(jArrResult);
             }
